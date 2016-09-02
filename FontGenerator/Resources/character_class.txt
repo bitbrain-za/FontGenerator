@@ -1,0 +1,28 @@
+class character
+{
+public:
+  char ASCII_char;
+  U8 lines;
+  U8 *charmap;
+
+public:
+  character(char c, U8 len, ...) 
+  { 
+    int i;
+
+	ASCII_char = c;
+
+    lines = len;
+    charmap = (U8 *)malloc(len);
+
+    va_list arg_list;
+    va_start(arg_list, len);
+
+    for(i = 0 ; i < len ; i++)
+    {
+      charmap[i] = (U8)va_arg(arg_list, int);
+    }
+    va_end(arg_list);
+  }
+  ~character() { free(charmap); }
+};

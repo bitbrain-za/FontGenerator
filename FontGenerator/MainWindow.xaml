@@ -1,0 +1,269 @@
+﻿<Window x:Class="FontGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FontGenerator"
+        mc:Ignorable="d"
+        Title="Font Generator" Height="432.25" Width="557.833">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ToolBarTray
+            Grid.Column="0"
+            Grid.Row="0" 
+            Grid.ColumnSpan="3" 
+            >
+
+            <ToolBar >
+                <ToggleButton x:Name="btnMode" Content="Font Mode" Click="btnMode_Click"/>
+                <Button x:Name="btnOpen" Content="Open File" Click="btnOpen_Click"/>
+                <Button x:Name="btnSave" Content="Save" Click="btnSave_Click"/>
+                <Button x:Name="btnSaveAs" Content="Save As" Click="btnSaveAs_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <StackPanel
+            x:Name="Controls"
+            Grid.Column="0"
+            Grid.Row="1"
+            MinWidth="150"
+            >
+            <DockPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                >
+                <Label Content="Character: " Width="auto"/>
+                <TextBox x:Name="txtCharacter"
+                         Text=" "
+                         MinWidth="20"
+                         KeyDown="txtCharacter_KeyDown"
+                         MaxLength="1" 
+                         MaxLines="1"
+                         TextAlignment="Right"
+                         />
+            </DockPanel>
+
+            <DockPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                >
+                <Label Content="ASCII: " Width="auto"/>
+                <TextBox x:Name="txtCharCode"
+                               Text="0x20"
+                               KeyDown="txtCharCode_KeyDown"
+                               TextAlignment="Right"
+                               />
+            </DockPanel>           
+
+
+             <DockPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                >
+                 
+                <Label Content="Done" Width="auto"/>
+
+                <ComboBox x:Name="comboDone"
+                          SelectionChanged="comboDone_SelectionChanged"
+                          HorizontalAlignment="Stretch"
+                          />
+            </DockPanel>           
+            
+            <Slider
+                x:Name="WidthSelector"
+                Maximum="20" ValueChanged="WidthSelector_ValueChanged" SmallChange="1"
+                />
+
+            <Button x:Name="Commit"
+                    Content="Done"
+                    Click="Commit_Click"/>
+
+            <Button
+               x:Name="Clear"
+               Content="Clear"
+               Click="Clear_Click"
+               />
+
+            <Button x:Name="btnInvert"
+                    Content="Invert"
+                    Click="btnInvert_Click"
+                    />
+
+            <Button x:Name="btnExport"
+                    Content="Export C"
+                    Click="btnExport_Click"
+                    />
+
+            <Label x:Name="Generated"/>
+
+
+
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="1"
+            Width="10"
+            Orientation="Horizontal">
+
+            <Line
+                Width="2"
+                Fill="Gray"/>
+
+
+        </StackPanel>
+
+        <StackPanel
+            x:Name="Bitmap"
+            Grid.Column="2" 
+            Grid.Row="1"
+            Orientation="Horizontal"
+            >
+
+            <local:line
+                x:Name="B0"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B1"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B2"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B3"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B4"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B5"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B6"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B7"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B8"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B9"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B10"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B11"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B12"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B13"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B14"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B15"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+
+            <local:line
+                x:Name="B16"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B17"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B18"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+            <local:line
+                x:Name="B19"
+                Value="0x00"
+                ValueChanged="B_ValueChanged"
+                />
+
+        </StackPanel>
+
+
+        <local:byte_map 
+            x:Name="ByteMap" 
+            Grid.Row="2"
+            Grid.Column="3"
+            EnterPressed="ByteMap_EnterPressed" Margin="0"/>
+
+
+    </Grid>
+</Window>
