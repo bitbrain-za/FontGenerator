@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="FontGenerator.DisplayByte"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FontGenerator"
+             mc:Ignorable="d" 
+             d:DesignHeight="32" d:DesignWidth="4">
+    <UniformGrid Rows="8">
+    <Rectangle
+      x:Name="B0"
+      Grid.Row="0"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+      
+    <Rectangle
+      x:Name="B1"
+      Grid.Row="1"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B2"
+      Grid.Row="2"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B3"
+      Grid.Row="3"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B4"
+      Grid.Row="4"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B5"
+      Grid.Row="5"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B6"
+      Grid.Row="6"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+    <Rectangle
+      x:Name="B7"
+      Grid.Row="7"
+      Width="auto"
+      Height="auto"
+      Fill="YellowGreen"
+      MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+      />
+
+
+            
+    </UniformGrid>
+</UserControl>

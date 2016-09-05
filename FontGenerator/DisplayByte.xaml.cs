@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace FontGenerator
 {
   /// <summary>
-  /// Interaction logic for line.xaml
+  /// Interaction logic for DisplayByte.xaml
   /// </summary>
-  public partial class line : UserControl
+  public partial class DisplayByte : UserControl
   {
     public event EventHandler ValueChanged;
 
@@ -29,25 +29,30 @@ namespace FontGenerator
       set { update_value(value); }
     }
 
+    public bool Enabled
+    {
+      set { Visible = value; }
+    }
+
     public bool Visible
     {
       get
       {
-        return (B0.Fill != Brushes.White);
+        return (B0.Fill != Brushes.LightGray);
       }
       set
       {
         if ( !value )
         {
-          B0.Fill = Brushes.White;
-          B1.Fill = Brushes.White;
-          B2.Fill = Brushes.White;
-          B3.Fill = Brushes.White;
-          B4.Fill = Brushes.White;
-          B5.Fill = Brushes.White;
-          B6.Fill = Brushes.White;
-          B6.Fill = Brushes.White;
-          B7.Fill = Brushes.White;
+          B0.Fill = Brushes.LightGray;
+          B1.Fill = Brushes.LightGray;
+          B2.Fill = Brushes.LightGray;
+          B3.Fill = Brushes.LightGray;
+          B4.Fill = Brushes.LightGray;
+          B5.Fill = Brushes.LightGray;
+          B6.Fill = Brushes.LightGray;
+          B6.Fill = Brushes.LightGray;
+          B7.Fill = Brushes.LightGray;
         }
         else
         {
@@ -55,7 +60,7 @@ namespace FontGenerator
         }
       }
     }
-    public line()
+    public DisplayByte()
     {
       InitializeComponent();
     }
@@ -99,7 +104,7 @@ namespace FontGenerator
     {
       if(!on)
       {
-        r.Fill = Brushes.LightGray;
+        r.Fill = Brushes.YellowGreen;
       }
       else
       {

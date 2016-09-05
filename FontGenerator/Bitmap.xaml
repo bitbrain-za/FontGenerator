@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="FontGenerator.Bitmap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FontGenerator"
+             mc:Ignorable="d" 
+             d:DesignHeight="256" d:DesignWidth="512">
+    <UniformGrid Rows="8">
+
+    <local:Page
+      x:Name="P0"
+      Grid.Row="0"
+      />
+
+    <local:Page
+      x:Name="P1"
+      Grid.Row="1"
+      />
+
+    <local:Page
+      x:Name="P2"
+      Grid.Row="2"
+      />
+
+    <local:Page
+      x:Name="P3"
+      Grid.Row="3"
+      />
+
+    <local:Page
+      x:Name="P4"
+      Grid.Row="4"
+      />
+
+    <local:Page
+      x:Name="P5"
+      Grid.Row="5"
+      />
+
+    <local:Page
+      x:Name="P6"
+      Grid.Row="6"
+      />
+
+    <local:Page
+      x:Name="P7"
+      Grid.Row="7"
+      />
+
+
+  </UniformGrid>
+</UserControl>

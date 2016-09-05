@@ -55,11 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Bitmap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="byte_map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="line.xaml">
+    <Page Include="DisplayByte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LCDCanvas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,20 +79,40 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bitmap.xaml.cs">
+      <DependentUpon>Bitmap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="byte_map.xaml.cs">
       <DependentUpon>byte_map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DisplayByte.xaml.cs">
+      <DependentUpon>DisplayByte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="font_file.cs" />
     <Compile Include="icon_file.cs" />
-    <Compile Include="line.xaml.cs">
-      <DependentUpon>line.xaml</DependentUpon>
+    <Compile Include="LCDCanvas.xaml.cs">
+      <DependentUpon>LCDCanvas.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="HalfPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HalfPage.xaml.cs">
+      <DependentUpon>HalfPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page.xaml.cs">
+      <DependentUpon>Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

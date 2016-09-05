@@ -30,8 +30,11 @@ namespace FontGenerator
     public MainWindow()
     {
       InitializeComponent();
-      WidthSelector.Value = 20;
+      WidthSelector.Value = 128;
       WidthSelector.Minimum = 1;
+      WidthSelector.Maximum = 128;
+
+      HeightSelector.Value = 8;
             
       font_path = Properties.Settings.Default.font;
       icon_path = Properties.Settings.Default.icon;
@@ -51,135 +54,32 @@ namespace FontGenerator
       set_width((int)(s.Value));
     }
 
+    private void HeightSelector_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+      Slider s = sender as Slider;
+      set_height((int)(s.Value));
+    }
+
     private void set_width(int val)
     {
-      ByteMap.Value = getMap();
+      if ( bitmap != null )
+      {
+        bitmap.x = val;
+        w.Content = val.ToString();
+      }
+    }
 
-      if ( val > 19 )
-        B19.Visible = true;
-      else
-        B19.Visible = false;
-
-      if ( val > 18 )
-        B18.Visible = true;
-      else
-        B18.Visible = false;
-
-      if ( val > 17 )
-        B17.Visible = true;
-      else
-        B17.Visible = false;
-
-      if ( val > 16 )
-        B16.Visible = true;
-      else
-        B16.Visible = false;
-
-      if ( val > 15 )
-        B15.Visible = true;
-      else
-        B15.Visible = false;
-
-      if ( val > 14 )
-        B14.Visible = true;
-      else
-        B14.Visible = false;
-
-      if ( val > 13 )
-        B13.Visible = true;
-      else
-        B13.Visible = false;
-
-      if ( val > 12 )
-        B12.Visible = true;
-      else
-        B12.Visible = false;
-
-      if ( val > 11 )
-        B11.Visible = true;
-      else
-        B11.Visible = false;
-
-      if ( val > 10 )
-        B10.Visible = true;
-      else
-        B10.Visible = false;
-
-      if ( val > 9 )
-        B9.Visible = true;
-      else
-        B9.Visible = false;
-
-      if ( val > 8 )
-        B8.Visible = true;
-      else
-        B8.Visible = false;
-
-      if ( val > 7 )
-        B7.Visible = true;
-      else
-        B7.Visible = false;
-
-      if ( val > 6 )
-        B6.Visible = true;
-      else
-        B6.Visible = false;
-
-      if ( val > 5 )
-        B5.Visible = true;
-      else
-        B5.Visible = false;
-
-      if ( val > 4 )
-        B4.Visible = true;
-      else
-        B4.Visible = false;
-
-      if ( val > 3 )
-        B3.Visible = true;
-      else
-        B3.Visible = false;
-
-      if ( val > 2 )
-        B2.Visible = true;
-      else
-        B2.Visible = false;
-
-      if ( val > 1 )
-        B1.Visible = true;
-      else
-        B1.Visible = false;
-
-      if ( val > 0 )
-        B0.Visible = true;
-      else
-        B0.Visible = false;
-
+    private void set_height(int val)
+    {
+      if ( bitmap != null )
+      {
+        bitmap.y = val;
+        h.Content = val.ToString();
+      }
     }
 
     private void Clear_Click(object sender, RoutedEventArgs e)
     {
-      B19.Clear();
-      B18.Clear();
-      B17.Clear();
-      B16.Clear();
-      B15.Clear();
-      B14.Clear();
-      B13.Clear();
-      B12.Clear();
-      B11.Clear();
-      B10.Clear();
-      B9.Clear();
-      B8.Clear();
-      B7.Clear();
-      B6.Clear();
-      B5.Clear();
-      B4.Clear();
-      B3.Clear();
-      B2.Clear();
-      B1.Clear();
-      B0.Clear();
-
       ByteMap.Value = getMap();
     }
 
@@ -255,69 +155,6 @@ namespace FontGenerator
     {
       List<byte> bytes = new List<byte>();
       int length = (int)WidthSelector.Value;
-
-      if ( length > 19 )
-        bytes.Add(B19.Value);
-
-      if ( length > 18 )
-        bytes.Add(B18.Value);
-
-      if ( length > 17 )
-        bytes.Add(B17.Value);
-
-      if ( length > 16 )
-        bytes.Add(B16.Value);
-
-      if ( length > 15 )
-        bytes.Add(B15.Value);
-
-      if ( length > 14 )
-        bytes.Add(B14.Value);
-
-      if ( length > 13 )
-        bytes.Add(B13.Value);
-
-      if ( length > 12 )
-        bytes.Add(B12.Value);
-
-      if ( length > 11 )
-        bytes.Add(B11.Value);
-
-      if ( length > 10 )
-        bytes.Add(B10.Value);
-
-      if ( length > 9 )
-        bytes.Add(B9.Value);
-
-      if ( length > 8 )
-        bytes.Add(B8.Value);
-
-      if ( length > 7 )
-        bytes.Add(B7.Value);
-
-      if ( length > 6 )
-        bytes.Add(B6.Value);
-
-      if ( length > 5 )
-        bytes.Add(B5.Value);
-
-      if ( length > 4 )
-        bytes.Add(B4.Value);
-
-      if ( length > 3 )
-        bytes.Add(B3.Value);
-
-      if ( length > 2 )
-        bytes.Add(B2.Value);
-
-      if ( length > 1 )
-        bytes.Add(B1.Value);
-
-      if ( length > 0 )
-        bytes.Add(B0.Value);
-
-      bytes.Reverse();
-
       return bytes.ToArray();
     }
 
@@ -325,65 +162,6 @@ namespace FontGenerator
     {
       int length = ba.Length;
 
-      if ( length > 19 )
-        B19.Value = ba[19];
-
-      if ( length > 18 )
-        B18.Value = ba[18];
-
-      if ( length > 17 )
-        B17.Value = ba[17];
-
-      if ( length > 16 )
-        B16.Value = ba[16];
-
-      if ( length > 15 )
-        B15.Value = ba[15];
-
-      if ( length > 14 )
-        B14.Value = ba[14];
-
-      if ( length > 13 )
-        B13.Value = ba[13];
-
-      if ( length > 12 )
-        B12.Value = ba[12];
-
-      if ( length > 11 )
-        B11.Value = ba[11];
-
-      if ( length > 10 )
-        B10.Value = ba[10];
-
-      if ( length > 9 )
-        B9.Value = ba[9];
-
-      if ( length > 8 )
-        B8.Value = ba[8];
-
-      if ( length > 7 )
-        B7.Value = ba[7];
-
-      if ( length > 6 )
-        B6.Value = ba[6];
-
-      if ( length > 5 )
-        B5.Value = ba[5];
-
-      if ( length > 4 )
-        B4.Value = ba[4];
-
-      if ( length > 3 )
-        B3.Value = ba[3];
-
-      if ( length > 2 )
-        B2.Value = ba[2];
-
-      if ( length > 1 )
-        B1.Value = ba[1];
-
-      if ( length > 0 )
-        B0.Value = ba[0];
     }
 
     private void Commit_Click(object sender, RoutedEventArgs e)
@@ -537,5 +315,6 @@ namespace FontGenerator
           icons.save(file);
       }   
     }
+
   }
 }

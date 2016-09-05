@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FontGenerator"
         mc:Ignorable="d"
-        Title="Font Generator" Height="432.25" Width="557.833">
+        Title="Font Generator" Height="432.25" Width="592.584">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -80,12 +80,37 @@
                           SelectionChanged="comboDone_SelectionChanged"
                           HorizontalAlignment="Stretch"
                           />
-            </DockPanel>           
-            
-            <Slider
-                x:Name="WidthSelector"
-                Maximum="20" ValueChanged="WidthSelector_ValueChanged" SmallChange="1"
-                />
+            </DockPanel>
+
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+              </Grid.ColumnDefinitions>
+              <Label Content="W:" Grid.Column="0"/>
+              <Slider
+                 x:Name="WidthSelector"
+                 Grid.Column="1"
+                 Maximum="20" ValueChanged="WidthSelector_ValueChanged" SmallChange="1"
+               />
+               <Label x:Name="w" Content="128" Grid.Column="2"/>
+            </Grid>
+       
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+              </Grid.ColumnDefinitions>
+              <Label Content="H:" Grid.Column="0"/>
+              <Slider
+                Grid.Column="1"
+                x:Name="HeightSelector" Value="1"
+                Minimum="1"
+                Maximum="8" ValueChanged="HeightSelector_ValueChanged" SmallChange="1"/>
+              <Label x:Name="h" Content="8" Grid.Column="2"/>
+            </Grid>
 
             <Button x:Name="Commit"
                     Content="Done"
@@ -127,138 +152,12 @@
 
         </StackPanel>
 
-        <StackPanel
-            x:Name="Bitmap"
+    <local:LCDCanvas
+            x:Name="bitmap"
             Grid.Column="2" 
-            Grid.Row="1"
-            Orientation="Horizontal"
-            >
+            Grid.Row="1"/>
 
-            <local:line
-                x:Name="B0"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B1"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B2"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B3"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B4"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B5"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B6"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B7"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B8"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B9"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B10"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B11"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B12"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B13"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B14"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B15"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-
-            <local:line
-                x:Name="B16"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B17"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B18"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-            <local:line
-                x:Name="B19"
-                Value="0x00"
-                ValueChanged="B_ValueChanged"
-                />
-
-        </StackPanel>
-
-
-        <local:byte_map 
+    <local:byte_map 
             x:Name="ByteMap" 
             Grid.Row="2"
             Grid.Column="3"
