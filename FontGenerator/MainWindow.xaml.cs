@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -65,7 +66,7 @@ namespace FontGenerator
       if ( bitmap != null )
       {
         bitmap.x = val;
-        w.Content = val.ToString();
+        w.Text = val.ToString();
       }
     }
 
@@ -74,7 +75,7 @@ namespace FontGenerator
       if ( bitmap != null )
       {
         bitmap.y = val;
-        h.Content = val.ToString();
+        h.Text = val.ToString();
       }
     }
 
@@ -316,5 +317,35 @@ namespace FontGenerator
       }   
     }
 
+    private static bool IsTextAllowed(string text)
+    {
+      Regex regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+      return !regex.IsMatch(text);
+    }
+
+    private void numericPreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+      e.Handled = !IsTextAllowed(e.Text);
+    }
+
+    private void h_KeyDown(object sender, KeyEventArgs e)
+    {
+      if ( e.Key == Key.Return )
+      {
+        if ( h.Text == "" )
+          h.Text = "1";
+        HeightSelector.Value = int.Parse(h.Text);
+      }
+    }
+
+    private void w_KeyDown(object sender, KeyEventArgs e)
+    {
+      if ( e.Key == Key.Return )
+      {
+        if ( w.Text == "" )
+          w.Text = "1";
+        WidthSelector.Value = int.Parse(w.Text);
+      }
+    }
   }
 }

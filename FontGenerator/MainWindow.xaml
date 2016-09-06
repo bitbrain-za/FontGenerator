@@ -94,7 +94,7 @@
                  Grid.Column="1"
                  Maximum="20" ValueChanged="WidthSelector_ValueChanged" SmallChange="1"
                />
-               <Label x:Name="w" Content="128" Grid.Column="2"/>
+               <TextBox x:Name="w" Text="128" Grid.Column="2" PreviewTextInput="numericPreviewTextInput" KeyDown="w_KeyDown"/>
             </Grid>
        
             <Grid>
@@ -109,7 +109,7 @@
                 x:Name="HeightSelector" Value="1"
                 Minimum="1"
                 Maximum="8" ValueChanged="HeightSelector_ValueChanged" SmallChange="1"/>
-              <Label x:Name="h" Content="8" Grid.Column="2"/>
+              <TextBox x:Name="h" Text="8" Grid.Column="2" PreviewTextInput="numericPreviewTextInput" KeyDown="h_KeyDown"/>
             </Grid>
 
             <Button x:Name="Commit"
