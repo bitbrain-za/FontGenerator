@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace FontGenerator
 {
   /// <summary>
-  /// Interaction logic for LCDCanvas.xaml
+  /// Interaction logic for Map.xaml
   /// </summary>
-  public partial class LCDCanvas : UserControl
+  public partial class Map : UserControl
   {
     private DisplayByte[,] bytes = new DisplayByte[8,128];
 
@@ -65,6 +65,11 @@ namespace FontGenerator
 
         bytes = new DisplayByte[value, _width];
 
+        mapGrid.Children.Clear();
+
+        mapGrid.Rows = value;
+        mapGrid.Columns = _width;
+
         for(int i = 0; i < value; i++ )
         {
           for(int j = 0; j < _width; j++ )
@@ -73,10 +78,10 @@ namespace FontGenerator
               bytes[i, j] = new DisplayByte();
             else
               bytes[i, j] = temp[i, j];
+            mapGrid.Children.Add(bytes[i, j]);
           }
         }
         _height = value;
-        Paint();
       }
     }
 
@@ -92,6 +97,11 @@ namespace FontGenerator
 
         bytes = new DisplayByte[_height, value];
 
+        mapGrid.Children.Clear();
+
+        mapGrid.Rows = _height;
+        mapGrid.Columns = value;
+
         for(int i = 0; i < _height; i++ )
         {
           for(int j = 0; j < value; j++ )
@@ -100,46 +110,39 @@ namespace FontGenerator
               bytes[i, j] = new DisplayByte();
             else
               bytes[i, j] = temp[i, j];
+            mapGrid.Children.Add(bytes[i, j]);
           }
         }
         _width = value;
-        Paint();
       }
     }
 
-    public LCDCanvas()
+    public Map()
     {
       InitializeComponent();
-
-      _width = 128;
-      _height = 8;
 
       for(int i = 0; i < 8; i++ )
       {
         for(int j = 0; j < 128; j++ )
         {
           bytes[i, j] = new DisplayByte();
+          mapGrid.Children.Add(bytes[i, j]);
         }
       }
-      Paint();
     }
 
     public void Paint()
     {
-      canvasGrid.Children.Clear();
       mapGrid.Children.Clear();
 
       mapGrid.Rows = _height;
-      canvasGrid.Rows = _height;
       mapGrid.Columns = _width;
-      canvasGrid.Columns = _width;
 
       for(int i = 0; i < _height; i++ )
       {
         for(int j = 0; j < _width; j++ )
         {
-          canvasGrid.Children.Add(bytes[i, j]);
-          mapGrid.Children.Add(bytes[i, j].Text);
+          mapGrid.Children.Add(bytes[i, j]);
         }
       }
     }

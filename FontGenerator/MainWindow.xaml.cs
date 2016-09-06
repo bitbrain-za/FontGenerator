@@ -81,7 +81,6 @@ namespace FontGenerator
 
     private void Clear_Click(object sender, RoutedEventArgs e)
     {
-      ByteMap.Value = getMap();
     }
 
     private void btnOpen_Click(object sender, RoutedEventArgs e)
@@ -244,7 +243,6 @@ namespace FontGenerator
         if ( map != null )
         {
           setMap(map);
-          ByteMap.Value = map;
           WidthSelector.Value = map.Length;
         }
       }
@@ -256,7 +254,6 @@ namespace FontGenerator
         if ( map != null )
         {
           setMap(map);
-          ByteMap.Value = map;
           WidthSelector.Value = map.Length;
         }
       }
@@ -264,24 +261,15 @@ namespace FontGenerator
 
     private void B_ValueChanged(object sender, EventArgs e)
     {
-      ByteMap.Value = getMap();
     }
 
     private void ByteMap_EnterPressed(object sender, EventArgs e)
     {
-      setMap(ByteMap.Value);
     }
 
     private void btnInvert_Click(object sender, RoutedEventArgs e)
     {
-      byte[] ba = ByteMap.Value;
-
-      for ( int i = 0; i < ba.Length; i++ )
-      {
-        ba[i] = (byte)(~ba[i]);
-      }
-      ByteMap.Value = ba;
-      setMap(ba);  
+      bitmap.Invert();
     }
 
     private void btnMode_Click(object sender, RoutedEventArgs e)

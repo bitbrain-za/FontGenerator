@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,14 @@ namespace FontGenerator
   /// </summary>
   public partial class Page : UserControl
   {
+    ObservableCollection<Sector> Sectors { get; set; }
+
     private bool _enabled = true;
     public bool Enabled
     {
       get { return _enabled; }
       set
       {
-        HP0.Enabled = value;
-        HP1.Enabled = value;
         _enabled = value;
       }
     }
@@ -36,22 +37,27 @@ namespace FontGenerator
     public int Length
     {
       get { return _length; }
+
       set
       {
-        if ( !_enabled )
-          return;
-
-        if(value >= 64)
+        if(value > _length)
         {
-          HP0.Length = 64;
-          HP1.Length = value - 64;
+          int temp = _length;
+          _length = value;
+
+          for(int i = temp; i < value; i++ )
+          {
+            Sectors.Add(new Sector());
+          }
         }
         else
         {
-          HP0.Length = value;
-          HP1.Length = 0;
+          for(int i = value; i < _length; i++ )
+          {
+            Sectors.RemoveAt(i);
+          }
+          _length = value;
         }
-        _length = value;
       }
     }
 
@@ -61,28 +67,18 @@ namespace FontGenerator
       {
         List<byte> v = new List<byte>();
 
-        v.AddRange(HP0.Value);
-
-        if(_length >= 64)
+        foreach ( Sector s in Sectors )
         {
-          v.AddRange(HP1.Value);
+          v.Add(s.Value);
         }
-
         return v;
       }
       set
       {
         Length = value.Count;
-
-        if ( _length > 64 )
+        for(int i = 0; i < Length; i++)
         {
-          HP0.Value = value.GetRange(0, 64);
-          HP1.Value = value.GetRange(0, _length - 64);
-        }
-        else
-        {
-          HP0.Value = value;
-          HP1.Value = null;
+          Sectors[i].Value = value[i];
         }
       }
     }
@@ -90,7 +86,12 @@ namespace FontGenerator
     public Page()
     {
       InitializeComponent();
+      Sectors = new ObservableCollection<Sector>();
 
+      for(int i = 0; i<128; i++)
+      {
+        Sectors.Add(new Sector());
+      }
     }
   }
 }

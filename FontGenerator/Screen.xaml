@@ -1,20 +1,20 @@
-﻿<UserControl x:Class="FontGenerator.Page"
+﻿<UserControl x:Class="FontGenerator.Screen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FontGenerator"
              mc:Ignorable="d" 
-             d:DesignHeight="32" d:DesignWidth="512">
-    <ItemsControl ItemsSource="{Binding Sectors}">
+             d:DesignHeight="256" d:DesignWidth="512">
+    <ItemsControl ItemsSource="{Binding Pages}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <UniformGrid Rows="{Binding Length}"/>
+                <UniformGrid Rows="{Binding y}" Columns="{Binding x}"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <local:Sector/>
+                <local:Page/>
             </DataTemplate>
 
         </ItemsControl.ItemTemplate>

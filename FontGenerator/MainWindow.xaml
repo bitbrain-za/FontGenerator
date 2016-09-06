@@ -5,24 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FontGenerator"
         mc:Ignorable="d"
-        Title="Font Generator" Height="432.25" Width="592.584">
+        Title="Font Generator" Height="600" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="512"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="512"/>
         </Grid.ColumnDefinitions>
 
         <ToolBarTray
             Grid.Column="0"
             Grid.Row="0" 
-            Grid.ColumnSpan="3" 
+            Grid.ColumnSpan="4" 
             >
 
             <ToolBar >
@@ -152,17 +151,16 @@
 
         </StackPanel>
 
-    <local:LCDCanvas
+        <local:Screen
+            x:Name="bitmap"
+            Grid.Column="2"
+            Grid.Row="1"
+            />
+<!--
+        <local:LCDCanvas
             x:Name="bitmap"
             Grid.Column="2" 
             Grid.Row="1"/>
-
-    <local:byte_map 
-            x:Name="ByteMap" 
-            Grid.Row="2"
-            Grid.Column="3"
-            EnterPressed="ByteMap_EnterPressed" Margin="0"/>
-
-
+-->
     </Grid>
 </Window>

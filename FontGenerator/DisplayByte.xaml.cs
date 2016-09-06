@@ -167,5 +167,20 @@ namespace FontGenerator
 
       RectangleSet(B7, ((val & 0x01) == 0x01));
     }
+
+    public void Invert()
+    {
+      update_value((byte)~_value);
+    }
+
+    public TextBox Text
+    {
+      get
+      {
+        TextBox view = new TextBox();
+        view.Text = _value.ToString("X2");
+        return view;
+      }
+    }
   }
 }

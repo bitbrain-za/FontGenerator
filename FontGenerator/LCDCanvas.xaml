@@ -5,9 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FontGenerator"
              mc:Ignorable="d" 
-             d:DesignHeight="256" d:DesignWidth="512">
-    <UniformGrid x:Name="canvasGrid" Rows="8" Columns="128">
-      
-            
-    </UniformGrid>
+             d:DesignHeight="512" d:DesignWidth="512">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="256"/>
+            <RowDefinition Height="256"/>
+        </Grid.RowDefinitions>
+        <UniformGrid x:Name="canvasGrid" Rows="8" Columns="128" Grid.Row="0">
+
+
+        </UniformGrid>
+
+        <UniformGrid x:Name="mapGrid" Rows="8" Columns="128" Grid.Row="1">
+
+
+        </UniformGrid>
+        
+    </Grid>
 </UserControl>
